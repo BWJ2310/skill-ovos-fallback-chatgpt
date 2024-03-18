@@ -95,7 +95,7 @@ class ChatGPTSkill(FallbackSkill):
             self.log.error("ChatGPT not configured yet, please set your API key in %s", self.settings.path)
             return False  # ChatGPT not configured yet
         utterance = message.data["utterance"]
-        self.speak_dialog("asking")
+        #self.speak_dialog("")
         # ask in a thread so fallback doesnt timeout
         self.bus.once("async.chatgpt.fallback", self._async_ask)
         self.bus.emit(
